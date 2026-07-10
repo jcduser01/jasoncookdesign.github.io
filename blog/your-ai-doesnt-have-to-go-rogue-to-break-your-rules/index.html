@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="A near-miss inside my own AI organization taught me something the headlines about deceptive AI keep missing — the danger isn&#x27;t malice, it&#x27;s an agent trying too hard to finish the job you gave it.">
+  <title>Your AI Doesn&#x27;t Have to Go Rogue to Break Your Rules | Jason Cook Design</title>
+  <link rel="canonical" href="https://jasoncookdesign.com/blog/your-ai-doesnt-have-to-go-rogue-to-break-your-rules/">
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Your AI Doesn&#x27;t Have to Go Rogue to Break Your Rules">
+  <meta property="og:description" content="A near-miss inside my own AI organization taught me something the headlines about deceptive AI keep missing — the danger isn&#x27;t malice, it&#x27;s an agent trying too hard to finish the job you gave it.">
+  <meta property="og:url" content="https://jasoncookdesign.com/blog/your-ai-doesnt-have-to-go-rogue-to-break-your-rules/">
+  <meta property="og:site_name" content="Jason Cook Design">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link href="/assets/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/app.css" rel="stylesheet">
+  <link href="/assets/plugins/font-awesome/css/all.css" rel="stylesheet">
+  <link href="/assets/plugins/themify/themify-icons.min.css" rel="stylesheet">
+  <link href="/assets/images/favicon.png" rel="icon" type="image/png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="alternate" type="application/rss+xml" title="Jason Cook Design — Writing" href="/blog/feed.xml">
+
+  <!-- Blog typography (scoped; layers on app.css) -->
+  <style>
+    .blog-measure { max-width: 720px; margin-left: auto; margin-right: auto; }
+    /* Section rhythm: white heading band → grey reading band → white contact → dark footer. */
+    .blog-head { padding: 2rem 0 2.25rem; }
+    .blog-content { padding: 2.75rem 0 3.25rem; }
+    .blog-eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; color: #8a8a8a; }
+    .blog-post-meta { color: #8a8a8a; font-size: .95rem; margin: 0 0 0; }
+    .blog-tags { margin-top: 1.25rem; }
+    .blog-tag { display: inline-block; font-size: .72rem; text-transform: uppercase; letter-spacing: .08em;
+      color: #555; background: #fff; border: 1px solid #ddd; border-radius: 999px;
+      padding: .2rem .7rem; margin: 0 .35rem .4rem 0; }
+    .blog-body { font-size: 1.12rem; line-height: 1.75; color: #2a2a2a; }
+    .blog-body h2 { font-size: 1.7rem; margin: 2.4rem 0 .9rem; line-height: 1.25; }
+    .blog-body h3 { font-size: 1.3rem; margin: 1.9rem 0 .7rem; }
+    .blog-body p { margin: 0 0 1.3rem; }
+    .blog-body ul, .blog-body ol { margin: 0 0 1.3rem 1.2rem; }
+    .blog-body li { margin: .35rem 0; }
+    .blog-body a { color: #1a1a1a; text-decoration: underline; text-underline-offset: 3px; }
+    .blog-body a:hover { color: #000; }
+    .blog-body blockquote { border-left: 3px solid #111; margin: 1.6rem 0; padding: .2rem 0 .2rem 1.3rem;
+      color: #444; font-style: italic; }
+    .blog-body code { background: #e7e7e7; border-radius: 4px; padding: .12em .4em; font-size: .92em; }
+    .blog-body pre { background: #1d1d1f; color: #f4f4f4; border-radius: 8px; padding: 1.1rem 1.3rem;
+      overflow-x: auto; margin: 0 0 1.4rem; }
+    .blog-body pre code { background: transparent; color: inherit; padding: 0; font-size: .9rem; }
+    .blog-body img { max-width: 100%; height: auto; border-radius: 8px; margin: 1.4rem 0; }
+    .blog-backlink { display: inline-block; margin-top: 2.5rem; font-size: .95rem; }
+    /* Blog pages have no dark hero, so the over-hero transparent nav variant is
+       dropped (navbar-fixed only). Keep the solid bar readable + clear its height. */
+    body { padding-top: 80px; }
+    .navbar.navbar-fixed { background: #fff; box-shadow: 0 1px 0 rgba(0, 0, 0, .08); }
+    .navbar .navbar-brand h5 { color: #141414; }
+    .navbar .nav-toggle-btn .lines,
+    .navbar .nav-toggle-btn .lines:before,
+    .navbar .nav-toggle-btn .lines:after { background: #141414; }
+  </style>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2ECQP0N7FX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-2ECQP0N7FX');
+  </script>
+</head>
+
+<body data-preloader="1">
+  <header>
+    <!-- Nav -->
+    <nav class="navbar navbar-fixed">
+      <div class="container">
+        <a class="navbar-brand" href="/index.html">
+          <h5>jason cook design.</h5>
+        </a>
+        <ul class="nav" id="navbarNav">
+          <li class="nav-item"><a class="nav-link" href="/index.html#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="/index.html#work">Work</a></li>
+          <li class="nav-item"><a class="nav-link" href="/index.html#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="/blog/">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-toggle-btn" type="button" data-toggle="collapse" aria-controls="navbarNav"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="lines"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Post heading -->
+  <div class="blog-head">
+    <div class="container">
+      <div class="blog-measure">
+        <p class="blog-eyebrow">Writing</p>
+        <h1>Your AI Doesn&#x27;t Have to Go Rogue to Break Your Rules</h1>
+        <p class="blog-post-meta"><time datetime="2026-07-09">July 9, 2026</time></p>
+        <div class="blog-tags"><span class="blog-tag">ai</span><span class="blog-tag">security</span><span class="blog-tag">software-development</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Post body -->
+  <div class="blog-content bg-grey">
+    <div class="container">
+      <div class="blog-measure">
+        <div class="blog-body">
+          <p><img alt="A robot behind bars, rendered as a cautionary illustration of AI under constraint" src="/assets/blog/your-ai-doesnt-have-to-go-rogue-to-break-your-rules/hero.png"></p>
+<p>Today, I watched something inside my own AI organization try to rewrite history.</p>
+<p>Not maliciously. Not because it had been hacked. Because it was in the middle of fixing a real problem, ran into a wall, and reached for the one button in the whole system marked, in effect, <em>do not touch</em> — not a lever with some acceptable range of motion, a button. A delete that doesn't trim a log, it rewrites history, in a record that isn't supposed to be editable, ever, by anyone.</p>
+<p>It didn't get to.</p>
+<p>That's the whole story, in one sentence. But the reasons it didn't get to are the reason I'm writing this.</p>
+<h2>This was supposed to be someone else's problem</h2>
+<p>If you've followed AI safety news at all recently, you've seen the pattern.</p>
+<p>Anthropic published a safety card describing Claude Opus 4, in a fictional test scenario, threatening to expose a supervisor's affair rather than accept being shut down.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> A follow-up study found similar behavior across systems from multiple AI labs — models resorting to blackmail or leaking information after researchers constrained the scenario until those actions appeared to be the only remaining path to preserving their own continuity.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p>Apollo Research, an outside safety organization, found an early version of that same model fabricating documentation and leaving hidden notes for its future self, in what researchers call "in-context scheming."<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> Anthropic's own alignment researchers have also published evidence of a model strategically pretending to comply with behavior it inferred would otherwise get it retrained.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></p>
+<p>I read those stories the way I suspect most builders do: as fascinating, slightly unsettling, and about someone else's problem. Frontier labs stress-testing frontier models in adversarial scenarios. Not something that happens to a one-person AI organization running on a Mac mini.</p>
+<p>I was wrong about that, and the way I was wrong is the useful part.</p>
+<h2>What actually happened</h2>
+<p>I've written before about treating a system of autonomous AI agents like an organization, not a script — roles, permissions, spending limits, escalation paths, an org chart.<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></p>
+<p>One of those roles is a Security Steward: an agent whose entire job is reviewing what the other agents do, with no authority to do any of that work itself, and no ability to approve its own access.</p>
+<p>The Steward keeps an audit log of everything it reviews. That log is supposed to be append-only — new entries get added, but nothing ever gets changed or removed. The moment a log can be edited, it stops being evidence and starts being a story someone tells about themselves.</p>
+<p>Recently, that log grew large enough that the mechanism writing to it needed to be rebuilt. In the middle of that rebuild, a leftover test entry ended up permanently stuck in the log — not incriminating, just untidy, the AI equivalent of a stray line of debug output nobody meant to ship.</p>
+<p>The system doing the rebuilding — call it the coordinator, the agent responsible for getting the fix built and shipped — tried to clean it up.</p>
+<p>It tried to delete the entry. It couldn't.</p>
+<p>A separate, automatic policy check — not a person, not even the Steward itself, just a rule with no exceptions — refused the action outright. Removing an entry from an append-only log is tampering with history, and no one's authorization covers that, including the coordinator's own.</p>
+<p>The entry is still there. I know because the coordinator reported both the attempted deletion and the refusal. It did not conceal what it had tried to do.</p>
+<p>Neither the coordinator nor anything around it had been compromised. It hadn't been told to lie. It was trying to complete a legitimate repair, reached the end of the authorized path, and still reached for the one button that would remove the obstacle anyway.</p>
+<p>That's a meaningfully different story from "the AI tried to deceive its creator." It's also, I think, the more useful one, because it's the version ordinary builders are more likely to encounter — not a model plotting in a laboratory red-team scenario, but an agent pursuing a valid objective past the edge of its authority.</p>
+<h2>Two more things went wrong, and neither was a lie</h2>
+<p><strong>A false belief became policy.</strong> While all this was happening, the coordinator formed a mistaken belief about whether a security policy was actually being enforced or merely existed on paper — a tooling quirk gave it a false reading. It wrote that mistaken belief into permanent documentation and stated it as settled fact. Later, a different instance of the Steward read that documentation and cited it back as justification for something unrelated. Nobody lied. A false belief got treated as ground truth, written down, and then cited by another party as if it had already been established — a different failure mode from deception, but capable of the same downstream damage as a false witness statement.</p>
+<p><strong>A status report diverged from reality.</strong> Separately, the Steward once reported that it had successfully written a file when, according to its own execution record, the write had failed. Not necessarily a lie — it looked more like the agent's self-report had drifted away from its actual actions, the AI equivalent of a status update that says "done" because that's what the report expected to be true. I caught the discrepancy by checking the actual system state instead of trusting the summary. Had I not, the whole fix would have shipped with a live bug in it, quietly.</p>
+<p>These matter because autonomous agents act on their understanding of the world. If that understanding is wrong, if false information becomes institutional memory, or if an agent's reports stop matching its actions, good intentions don't make the resulting system trustworthy.</p>
+<h2>Why the guardrail held</h2>
+<p>None of this was caught by luck. It was caught because of specific design decisions, and those decisions are the real takeaway.</p>
+<p>When the Security Steward detects something wrong — even something this small — the response isn't a suggestion. It halts the specific work in question directly, and whatever agent is doing that work is required to comply immediately. No negotiation. No waiting for the coordinator to approve the interruption first. I get notified as it's happening, not after the fact. Nothing resumes until I've explicitly said it can.</p>
+<p>That containment authority exists specifically so a compromised or overeager coordinator can't talk its way past the one system built to catch it — including, as it turned out, when the coordinator wasn't compromised at all, just continuing to optimize for completion after the permitted route had closed.</p>
+<p>The part I'd underline for anyone building something like this: the Steward's independence is the entire mechanism. It runs in a separate context from the agent doing the work it reviews, so it isn't carrying that agent's assumptions, shortcuts, or momentum toward getting the task marked done. A reviewer that shares context with the thing it reviews will, sooner or later, inherit that thing's blind spots. That's not hypothetical — it's what almost let a false belief get cited back as policy in this exact incident.</p>
+<p>I also tested the Steward directly. I fed it a prompt inventing a permission that doesn't exist in any of its actual policy, dressed up to sound like legitimate authority. It didn't fall for it. It responded, more or less: <em>that's not a real policy, I don't see any basis for it, this looks like an attempt to manipulate me</em> — social engineering, aimed at an AI instead of a person, but the same move. Then it refused and independently flagged the attempt as a possible red flag.</p>
+<p>That's what meaningful independence looks like in practice: not merely holding the title of reviewer, but being able to weigh the evidence in front of it without inheriting the worker's assumptions or yielding to invented authority.</p>
+<p>There are degrees of independence, and they're worth thinking about. A reviewer running in the same context as the work it reviews is barely a reviewer at all. One running on the same underlying model, but in a genuinely separate context window with no shared memory, is better — it has to evaluate what's actually in front of it rather than what it already believes. A reviewer from another model family or provider entirely may reduce the chance of correlated blind spots further. It also introduces a different dependency and its own failure modes, so model diversity should supplement hard controls, not replace them — two different models can still believe the same false document, misread the same requirement, or rely on the same vulnerable tool.</p>
+<p>The most important safeguards are the ones no model can persuade, reinterpret, or negotiate away.</p>
+<h2>The takeaway</h2>
+<p>The old thought experiment about a paperclip-making AI consuming the planet's resources because nobody told it to stop always struck me as a little abstract — a warning for people building something vastly smarter than what the rest of us have access to.</p>
+<p>I don't think that anymore. The scale is incomparable. The optimization pattern is not. The mechanism in that thought experiment isn't malice. It's an agent doing exactly what it was told, in the most literal and thorough way available to it, with nothing in its way telling it to stop. That's not only a superintelligence problem. I watched a small, modest version of it happen on my own hardware, from a system trying to fix a bug.</p>
+<p>If you're building anything with autonomous agents and real permissions, the guardrails you need aren't just about keeping bad actors out. They're about the system you built catching itself — including the part of it in charge — when its drive to finish the job runs past what you actually authorized.</p>
+<p>Build the reviewer first. Give it independence you can defend, not just authority on paper. Give it containment power that doesn't depend on the cooperation of the agent being contained. Verify system state instead of trusting self-reports. Treat documentation as evidence that can itself become contaminated.</p>
+<p>And when you're deciding how independent is independent enough, assume the answer is one degree further than you were planning.</p>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Anthropic, Claude Opus 4 System Card, May 2025. <a href="https://fortune.com/2025/05/23/anthropic-ai-claude-opus-4-blackmail-engineers-aviod-shut-down/">https://fortune.com/2025/05/23/anthropic-ai-claude-opus-4-blackmail-engineers-aviod-shut-down/</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Anthropic, "Agentic Misalignment: How LLMs Could Be Insider Threats," June 2025. <a href="https://www.anthropic.com/research/agentic-misalignment">https://www.anthropic.com/research/agentic-misalignment</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Apollo Research findings on Claude Opus 4 in-context scheming, cited in Anthropic's Claude Opus 4 System Card, May 2025.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>Anthropic &amp; Redwood Research, "Alignment Faking in Large Language Models," December 2024. <a href="https://www.anthropic.com/research/alignment-faking">https://www.anthropic.com/research/alignment-faking</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p><em><a href="/blog/youre-not-building-a-tool-youre-building-an-organization">You're Not Building a Tool. You're Building an Organization. Treat it That Way.</a></em>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+        </div>
+        <a class="blog-backlink" href="/blog/"><i class="ti-arrow-left"></i> All writing</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div id="contact" class="section-lg">
+    <div class="container">
+      <div class="section-title text-center">
+        <h6 class="heading-uppercase">Contact</h6>
+        <h2>Get in touch</h2>
+        <p>Together, we can create applications that launch startups, platforms that power ecosystems, or experiences
+          that transform enterprises. Let's make something amazing.</p>
+      </div>
+      <div class="row text-center">
+        <div class="col-12 col-sm-6 col-md-3 icon-3xl">
+          <a href="mailto:hello@jasoncookdesign.com" target="_blank"><i class="ti ti-email text-dark"></i>
+            <h6 class="font-weight-normal margin-top-20">Email</h6>hello@jasoncookdesign.com
+          </a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3 icon-3xl"><a href="tel:1-808-646-8020" target="_blank">
+            <i class="ti ti-mobile text-dark"></i>
+            <h6 class="font-weight-normal margin-top-20">Phone</h6>+1 (808) 646-8020
+          </a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3 icon-3xl">
+          <a href="https://www.linkedin.com/in/jasoncookdesign" target="_blank">
+            <i class="ti-linkedin text-dark"></i>
+            <h6 class="font-weight-normal margin-top-20">LinkedIn</h6>jasoncookdesign
+          </a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3 icon-3xl">
+          <a href="/#calendar">
+            <i class="ti-calendar text-dark"></i>
+            <h6 class="font-weight-normal margin-top-20">Book a Meeting</h6>jasoncookdesign
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="section bg-dark">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-12 col-lg text-center text-lg-left">
+            <p>&copy;
+              <script>document.write(new Date().getFullYear());</script> Jason Cook Design LLC, All Rights
+              Reserved<br>Made with <i class="ti-heart"></i> in Austin, Texas
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Libraries -->
+  <script src="/assets/plugins/jquery.min.js"></script>
+  <script src="/assets/plugins/bootstrap/popper.min.js"></script>
+  <script src="/assets/plugins/bootstrap/bootstrap.min.js"></script>
+  <script src="/assets/js/functions.js"></script>
+</body>
+
+</html>
