@@ -740,9 +740,9 @@ button {
 }
 
 /* line 31, /Users/jcodec/Dev/jasoncookdesign.github.io/assets/css/scss/_base.scss */
-a:focus, a:active, button:focus, button:active {
-  box-shadow: none;
-  outline: 0;
+a:focus, button:focus {
+  outline: 2px solid #005fcc;
+  outline-offset: 2px;
 }
 
 /* line 40, /Users/jcodec/Dev/jasoncookdesign.github.io/assets/css/scss/_base.scss */
@@ -1466,7 +1466,7 @@ pre {
 
 /* line 17, /Users/jcodec/Dev/jasoncookdesign.github.io/assets/css/scss/elements/_breadcrumb.scss */
 .breadcrumb .breadcrumb-item.active {
-  color: #a0a0a0;
+  color: #595959;
 }
 
 /* line 20, /Users/jcodec/Dev/jasoncookdesign.github.io/assets/css/scss/elements/_breadcrumb.scss */
@@ -4034,8 +4034,8 @@ textarea {
 input:focus, input:active,
 textarea:focus,
 textarea:active {
-  outline: 0;
-  box-shadow: none;
+  outline: 2px solid #005fcc;
+  outline-offset: 2px;
 }
 
 /* line 24, /Users/jcodec/Dev/jasoncookdesign.github.io/assets/css/scss/elements/_form.scss */
@@ -4164,8 +4164,8 @@ input:focus, textarea:focus, .form-control:focus {
 /* line 110, /Users/jcodec/Dev/jasoncookdesign.github.io/assets/css/scss/elements/_form.scss */
 .custom-select:focus {
   border-color: rgba(0, 0, 0, 0.1);
-  outline: 0;
-  box-shadow: none;
+  outline: 2px solid #005fcc;
+  outline-offset: 2px;
 }
 
 /* line 115, /Users/jcodec/Dev/jasoncookdesign.github.io/assets/css/scss/elements/_form.scss */
@@ -4885,7 +4885,7 @@ ol li ul, ol li ol {
 /* line 12, /Users/jcodec/Dev/jasoncookdesign.github.io/assets/css/scss/elements/_nav.scss */
 .nav .nav-item .nav-link {
   padding: 0;
-  color: #a0a0a0;
+  color: #595959;
   -webkit-transition: linear 0.1s;
   transition: linear 0.1s;
 }
