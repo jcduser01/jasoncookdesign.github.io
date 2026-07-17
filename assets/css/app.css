@@ -726,6 +726,32 @@ main {
   display: contents;
 }
 
+/* Heading-appearance utility classes (like Bootstrap's .h1-.h6). These let us
+   correct semantic heading LEVELS for accessibility (no skipped levels, single
+   <h1>) without changing visual size: apply the class matching the element's
+   original tag. font-weight/color match the base heading rule so the classes
+   also work on non-heading elements (e.g. a price rendered as a <div>); where
+   an element already carries .font-weight-normal or a dark-section color rule,
+   those win (later source order / higher specificity) so nothing changes. */
+.h1 { font-size: 40px; line-height: 56px; font-weight: 700; color: #141414; }
+.h2 { font-size: 32px; line-height: 48px; font-weight: 700; color: #141414; }
+.h3 { font-size: 28px; line-height: 44px; font-weight: 700; color: #141414; }
+.h4 { font-size: 24px; line-height: 40px; font-weight: 700; color: #141414; }
+.h5 { font-size: 20px; line-height: 36px; font-weight: 700; color: #141414; }
+.h6 { font-size: 16px; line-height: 30px; font-weight: 700; color: #141414; }
+
+/* Visually hidden, but available to assistive tech (for structural headings
+   that have no on-screen text, e.g. the testimonials section title). */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* line 15, /Users/jcodec/Dev/jasoncookdesign.github.io/assets/css/scss/_base.scss */
 a {
   color: #141414;
