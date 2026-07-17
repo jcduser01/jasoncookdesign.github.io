@@ -717,6 +717,15 @@ body {
   overflow-x: hidden;
 }
 
+/* The <main> accessibility landmark must not create its own layout box, or
+   it breaks the percentage-height chain that .section-fullscreen relies on
+   (html/body are height:100%; the hero is height:100% of its parent).
+   display:contents keeps the landmark in the a11y tree while leaving layout
+   exactly as it was before the wrapper was added. */
+main {
+  display: contents;
+}
+
 /* line 15, /Users/jcodec/Dev/jasoncookdesign.github.io/assets/css/scss/_base.scss */
 a {
   color: #141414;
